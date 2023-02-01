@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.0</version>
+    <date>2023-02-01T09:21:21Z</date>
+    <groups>
+        <group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <uuid>e5b939037c7745f894a032a98968ead4</uuid>
+            <template>SNMP Sonicwall 2700</template>
+            <name>SNMP Sonicwall 2700</name>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>0d74d45664fd4a6da89ef93956147727</uuid>
+                    <name>Firmware Version</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.8741.2.1.1.3.0</snmp_oid>
+                    <key>snwlSysFirmwareVersion</key>
+                    <delay>3600</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <inventory_link>OS</inventory_link>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Sonicwall General</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>f10421201f084befa3aa809620f41b57</uuid>
+                    <name>Current DPI SSL Connections</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.8741.1.3.5.1.1</snmp_oid>
+                    <key>sonicDpiSslConnCountCur</key>
+                </item>
+                <item>
+                    <uuid>de6134ec4b714a43a298c7f60dc6eb61</uuid>
+                    <name>Max DPI SSL Connections</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.8741.1.3.5.3.1</snmp_oid>
+                    <key>sonicDpiSslConnCountMax</key>
+                </item>
+                <item>
+                    <uuid>f1f5942ad4604466a21609d86f97a614</uuid>
+                    <name>Current Connections</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.8741.1.3.1.2.0</snmp_oid>
+                    <key>sonicwallCurrentConnections</key>
+                    <delay>60</delay>
+                    <units>KC</units>
+                    <preprocessing>
+                        <step>
+                            <type>CHANGE_PER_SECOND</type>
+                            <parameters>
+                                <parameter/>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>SonicWall Performance</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>244aaa044be447478b715b78fdcbe3f3</uuid>
+                    <name>Current CPU Util</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.8741.1.3.1.3.0</snmp_oid>
+                    <key>sonicwallCurrentCPUUtil</key>
+                    <delay>60</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>%</units>
+                    <preprocessing>
+                        <step>
+                            <type>CHANGE_PER_SECOND</type>
+                            <parameters>
+                                <parameter/>
+                            </parameters>
+                        </step>
+                        <step>
+                            <type>MULTIPLIER</type>
+                            <parameters>
+                                <parameter>100</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>SonicWall Performance</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>aecd6f07f8004e6e92870739856db962</uuid>
+                            <expression>avg(/SNMP Sonicwall 2700/sonicwallCurrentCPUUtil,#5)&gt;95</expression>
+                            <name>Sonicwall {HOSTNAME} - Usage of CPU over 95%</name>
+                            <priority>AVERAGE</priority>
+                            <description>CPU activity on Sonicwall is more than 95% during the last five checks</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>535ea33d9223435f885896ba83013a07</uuid>
+                    <name>Current RAM Usage</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.8741.1.3.1.4.0</snmp_oid>
+                    <key>sonicwallCurrentRAMUtil</key>
+                    <delay>60</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>%</units>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>SonicWall Performance</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>ff55b84565d24131b3a98d1f109f5cbb</uuid>
+                            <expression>avg(/SNMP Sonicwall 2700/sonicwallCurrentRAMUtil,#5)&gt;100</expression>
+                            <name>Sonicwall {HOSTNAME} - Memory Usage Over 100%</name>
+                            <priority>AVERAGE</priority>
+                            <description>Memory usage on Sonicwall is more than 100% during the last five checks</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>867faaa0a12347d9bb0dd50c90e934e1</uuid>
+                    <name>Sonicwall Model</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.8741.2.1.1.1.0</snmp_oid>
+                    <key>SysmModel</key>
+                    <delay>3600</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <inventory_link>MODEL</inventory_link>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Sonicwall General</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>433c6a5e5a7a4ec890fe15ab3ce25d0a</uuid>
+                    <name>Sonicwall Serial Number</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.4.1.8741.2.1.1.2.0</snmp_oid>
+                    <key>SysmSerialNumber</key>
+                    <delay>3600</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <inventory_link>SERIALNO_A</inventory_link>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Sonicwall General</value>
+                        </tag>
+                    </tags>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <uuid>3f8ae0c7fbd14081b1828b591438356c</uuid>
+                    <name>Interfaces </name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>discovery[{#SNMPVALUE},IF-MIB::ifDescr]</snmp_oid>
+                    <key>sonicwallifDescr</key>
+                    <delay>90</delay>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>1c0ff66d050c45b6aead7d80ebd5582e</uuid>
+                            <name>Incoming Traffic on interface $1</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>IF-MIB::ifInOctets.{#SNMPINDEX}</snmp_oid>
+                            <key>ifInOctets.[{#SNMPVALUE}]</key>
+                            <delay>30</delay>
+                            <units>bps</units>
+                            <preprocessing>
+                                <step>
+                                    <type>CHANGE_PER_SECOND</type>
+                                    <parameters>
+                                        <parameter/>
+                                    </parameters>
+                                </step>
+                                <step>
+                                    <type>MULTIPLIER</type>
+                                    <parameters>
+                                        <parameter>8</parameter>
+                                    </parameters>
+                                </step>
+                            </preprocessing>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>9ea70fea2cbc4b52a97e6492cf665fa9</uuid>
+                            <name>Outgoing Traffic on interface $1</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>IF-MIB::ifOutOctets.{#SNMPINDEX}</snmp_oid>
+                            <key>ifOutOctets.[{#SNMPVALUE}]</key>
+                            <delay>30</delay>
+                            <units>bps</units>
+                            <preprocessing>
+                                <step>
+                                    <type>CHANGE_PER_SECOND</type>
+                                    <parameters>
+                                        <parameter/>
+                                    </parameters>
+                                </step>
+                                <step>
+                                    <type>MULTIPLIER</type>
+                                    <parameters>
+                                        <parameter>8</parameter>
+                                    </parameters>
+                                </step>
+                            </preprocessing>
+                        </item_prototype>
+                    </item_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <uuid>2a022fc2fa444a29a4a00c6ccb514630</uuid>
+                            <name>Traffic on {#SNMPVALUE}</name>
+                            <graph_items>
+                                <graph_item>
+                                    <drawtype>GRADIENT_LINE</drawtype>
+                                    <color>1A7C11</color>
+                                    <item>
+                                        <host>SNMP Sonicwall 2700</host>
+                                        <key>ifInOctets.[{#SNMPVALUE}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>GRADIENT_LINE</drawtype>
+                                    <color>F63100</color>
+                                    <item>
+                                        <host>SNMP Sonicwall 2700</host>
+                                        <key>ifOutOctets.[{#SNMPVALUE}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+        </template>
+    </templates>
+    <graphs>
+        <graph>
+            <uuid>d5674c8c1fd34bd4b94bfc56cbb59579</uuid>
+            <name>CPU %</name>
+            <show_work_period>NO</show_work_period>
+            <graph_items>
+                <graph_item>
+                    <drawtype>GRADIENT_LINE</drawtype>
+                    <color>00AA00</color>
+                    <item>
+                        <host>SNMP Sonicwall 2700</host>
+                        <key>sonicwallCurrentCPUUtil</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>ea7b97c2ce744903a822c6fe17b60a96</uuid>
+            <name>Current Connections</name>
+            <show_work_period>NO</show_work_period>
+            <graph_items>
+                <graph_item>
+                    <color>999900</color>
+                    <item>
+                        <host>SNMP Sonicwall 2700</host>
+                        <key>sonicwallCurrentConnections</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>ec43227508294b96b7a4133f9e7a6a67</uuid>
+            <name>RAM %</name>
+            <show_work_period>NO</show_work_period>
+            <graph_items>
+                <graph_item>
+                    <drawtype>GRADIENT_LINE</drawtype>
+                    <color>C80000</color>
+                    <item>
+                        <host>SNMP Sonicwall 2700</host>
+                        <key>sonicwallCurrentRAMUtil</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
