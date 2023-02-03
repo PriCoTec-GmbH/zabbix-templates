@@ -1,0 +1,124 @@
+          <value_type>TEXT</value_type>
+                    <inventory_link>MODEL</inventory_link>
+                </item>
+                <item>
+                    <uuid>59e8d3355a394d07881bbe5b936dae27</uuid>
+                    <name>Page Counter</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.2.1.43.10.2.1.4.1.1</snmp_oid>
+                    <key>prtMarkerLifeCounter.1.1</key>
+                    <description>Total printed pages</description>
+                </item>
+                <item>
+                    <uuid>56ebb6949d7042c692b5399b79a4b9ef</uuid>
+                    <name>Printer ink cartridge type black</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.2.1.43.11.1.1.6.1.1</snmp_oid>
+                    <key>prtMarkerSuppliesDescription.1.1</key>
+                    <delay>1d</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                </item>
+                <item>
+                    <uuid>61fe95471b0e4c62a89285431d6b8edd</uuid>
+                    <name>Printer ink cartridge type cyan</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.2.1.43.11.1.1.6.1.2</snmp_oid>
+                    <key>prtMarkerSuppliesDescription.1.2</key>
+                    <delay>1d</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                </item>
+                <item>
+                    <uuid>032f01dd8d7d4fba9b2dfda7ccb97cf3</uuid>
+                    <name>Printer ink cartridge type magenta</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.2.1.43.11.1.1.6.1.3</snmp_oid>
+                    <key>prtMarkerSuppliesDescription.1.3</key>
+                    <delay>1d</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                </item>
+                <item>
+                    <uuid>b60e8a92f042496ca93523e20982c700</uuid>
+                    <name>Printer ink cartridge type yellow</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.2.1.43.11.1.1.6.1.4</snmp_oid>
+                    <key>prtMarkerSuppliesDescription.1.4</key>
+                    <delay>1d</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                </item>
+                <item>
+                    <uuid>380e87ce807b4c7fa20b519618f349a0</uuid>
+                    <name>Printer ink cartridge level black</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.2.1.43.11.1.1.9.1.1</snmp_oid>
+                    <key>prtMarkerSuppliesLevel.1.1</key>
+                    <units>%</units>
+                </item>
+                <item>
+                    <uuid>2e3493cca17b4d539c49e1708cc9df83</uuid>
+                    <name>Printer ink cartridge level cyan</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.2.1.43.11.1.1.9.1.2</snmp_oid>
+                    <key>prtMarkerSuppliesLevel.1.2</key>
+                    <units>%</units>
+                </item>
+                <item>
+                    <uuid>37389eebcf584839b4ce5df9527d1642</uuid>
+                    <name>Printer ink cartridge level magenta</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.2.1.43.11.1.1.9.1.3</snmp_oid>
+                    <key>prtMarkerSuppliesLevel.1.3</key>
+                    <units>%</units>
+                </item>
+                <item>
+                    <uuid>4bfdf9d7a3874058907dc87ff38a9440</uuid>
+                    <name>Printer ink cartridge level yellow</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.2.1.43.11.1.1.9.1.4</snmp_oid>
+                    <key>prtMarkerSuppliesLevel.1.4</key>
+                    <units>%</units>
+                </item>
+                <item>
+                    <uuid>a84c6d7698a446ee97b72598124746bc</uuid>
+                    <name>System Location</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.2.1.1.6.0</snmp_oid>
+                    <key>sysLocation.0</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <inventory_link>LOCATION</inventory_link>
+                </item>
+                <item>
+                    <uuid>16da46c0260842599c64675947a913be</uuid>
+                    <name>System Name</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.2.1.1.5.0</snmp_oid>
+                    <key>sysName.0</key>
+                    <delay>1d</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <inventory_link>NAME</inventory_link>
+                </item>
+                <item>
+                    <uuid>b6d074c9ef4e4df6b36ad781b07ccc40</uuid>
+                    <name>Uptime</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>.1.3.6.1.2.1.1.3.0</snmp_oid>
+                    <key>sysUpTime.0</key>
+                    <units>uptime</units>
+                    <preprocessing>
+                        <step>
+                            <type>MULTIPLIER</type>
+                            <parameters>
+                                <parameter>0.01</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </item>
+            </items>
+        </template>
+    </templates>
+</zabbix_export>
